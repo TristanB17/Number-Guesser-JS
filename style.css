@@ -67,7 +67,6 @@ body {
 }
 
 #check-guess {
-  visibility: hidden;
   margin-top: 60px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
