@@ -15,18 +15,17 @@
       <form class='form-container'>
         <input type="text" name="number" class='number-input' placeholder="Enter your guess">
         <div class="inner-form-container">
-          <input type="submit" name="guess" value='Guess' class='main-buttons'>
+          <input type="submit" name="guess" value='Guess' class='main-buttons' onclick='apparate()'>
           <input type="reset" name="clear" value='Clear' class='main-buttons'>
         </div>
       </form>
-      <div class="check-guess">
+      <div id="check-guess">
         <p>Your last guess was</p>
         <div id="user-guess"></div>
-        <p id='number-comparison'></p>
+        <p class='number-comparison'></p>
       </div>
-      <div>  
-        <input type="reset" name="reset-page" value="Reset" class='reset-button'>
-      </div>
+      <input type="button" name="reset-page" class='reset-button' onclick='resetPage()' value='Reset'>
     </div>
   </body>
 </html>
+<script type="text/javascript" src="number_generator_and_guess_checker.js"></script>
