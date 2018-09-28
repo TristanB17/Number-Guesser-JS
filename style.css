@@ -25,6 +25,8 @@ body {
 }
 
 #main-container {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,6 +76,7 @@ body {
 
 #check-guess > p {
   font-size: 25px;
+  text-align: center;
 }
 
 .reset-button {
@@ -82,11 +85,63 @@ body {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  border-radius: 24px;
   background-color: #929497;
   color: #FFFFFF;
-  border-radius: 24px;
 }
 
-.number-comparison {
-  font-size: 35px;
+.reset-button:hover {
+  background-color: #EB008B;
+}
+
+#number-comparison {
+  font-size: 25px;
+}
+
+#guess-display {
+  font-size: 200px;
+  color: #c61583;
+  text-align: center;
+  margin: 0;
+}
+
+.main-buttons:hover {
+  background-color: #EB008B;
+}
+
+.clear-button-disabled {
+  color: #D0D2D3;
+  background-color: #FFFFFF;
+  height: 50px;
+  width: 220px;
+  border-radius: 24px;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.reset-button-disabled {
+  width: 500px;
+  height: 30px;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  border-radius: 24px;
+  color: #D0D2D3;
+  background-color: #FFFFFF;
+}
+
+.range-setter {
+  display: flex;
+  flex-direction: row;
+}
+
+.range-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
 }
