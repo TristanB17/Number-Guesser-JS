@@ -98,6 +98,10 @@ body {
   font-size: 25px;
 }
 
+#win-message {
+  font-size: 10px;
+}
+
 #guess-display {
   font-size: 200px;
   color: #c61583;

@@ -5,8 +5,7 @@ let randomNumber = "Undefined";
 function setMinimum() {
   baseNum = parseInt(document.getElementById('user-lowest-number').value);
   if (baseNum === "") {
-    baseNumber = 1;
-    baseNum.min = 1;
+    const baseNumber = 1;
   } else {
     baseNumber = baseNum;
     baseNum.min = baseNumber;
@@ -16,8 +15,7 @@ function setMinimum() {
 function setMaximum() {
   limitNum = parseInt(document.getElementById('user-highest-number').value);
   if (limitNum === "") {
-    limitNumber = 100;
-    limitNum.max = 100;
+    const limitNumber = 100;
   } else {
     limitNumber = limitNum;
     limitNum.max = limitNumber;
@@ -30,8 +28,6 @@ const resetButton = document.getElementById('reset-button-id');
 function getRandom(bottom, top) {
   return Math.floor(Math.random() * ( 1 + top - bottom ) ) + bottom;
 };
-
-console.log(randomNumber);
 
 document.getElementById('check-guess').style.visibility = "hidden";
 
@@ -64,12 +60,16 @@ userGuessInput.oninput = function() {
                                     };
 
 function apparate() {
-  setMinimum()
-  setMaximum()
+  setMinimum();
+  setMaximum();
+  if (isNaN(baseNumber)) {
+    baseNumber = 1;
+  }
+  if (isNaN(limitNumber)) {
+    limitNumber = 100;
+  }
   if (randomNumber === "Undefined") {
     randomNumber = getRandom(baseNumber, limitNumber);
-  } else {
-    randomNumber
   };
   console.log(randomNumber)
   guess = document.getElementById('check-guess');
@@ -90,6 +90,7 @@ function apparate() {
     document.getElementById('number-comparison').innerHTML = "That is too low";
   } else {
     document.getElementById('number-comparison').innerHTML = "BOOM!";
+    document.getElementById('win-message').innerHTML = "Since you won,\nwe decreased the minimum range\nand increased the maximum range by ten,\nrespectably, for the next round.\nHappy guessing!";
     document.getElementById('user-lowest-number').value=`${baseNumber - 10}`;
     document.getElementById('user-highest-number').value=`${limitNumber + 10}`;
   };
