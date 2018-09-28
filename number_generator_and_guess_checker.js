@@ -1,9 +1,31 @@
 let baseNumber = 1;
 let limitNumber = 100;
-var randomNumber = getRandom(baseNumber, limitNumber);
+let randomNumber = "Undefined";
+
+function setMinimum() {
+  baseNum = parseInt(document.getElementById('user-lowest-number').value);
+  if (baseNum === "") {
+    baseNumber = 1;
+    baseNum.min = 1;
+  } else {
+    baseNumber = baseNum;
+    baseNum.min = baseNumber;
+  }
+};
+
+function setMaximum() {
+  limitNum = parseInt(document.getElementById('user-highest-number').value);
+  if (limitNum === "") {
+    limitNumber = 100;
+    limitNum.max = 100;
+  } else {
+    limitNumber = limitNum;
+    limitNum.max = limitNumber;
+  }
+};
+
 const clearButton = document.getElementById('clear-button');
 const resetButton = document.getElementById('reset-button-id');
-
 
 function getRandom(bottom, top) {
   return Math.floor(Math.random() * ( 1 + top - bottom ) ) + bottom;
@@ -42,6 +64,14 @@ userGuessInput.oninput = function() {
                                     };
 
 function apparate() {
+  setMinimum()
+  setMaximum()
+  if (randomNumber === "Undefined") {
+    randomNumber = getRandom(baseNumber, limitNumber);
+  } else {
+    randomNumber
+  };
+  console.log(randomNumber)
   guess = document.getElementById('check-guess');
   event.preventDefault();
   activateResetButton(resetButton);
@@ -50,13 +80,17 @@ function apparate() {
   }
   guessNumber = document.getElementById('user-input').value;
   document.getElementById('guess-display').innerHTML = guessNumber;
-  if (parseInt(guessNumber) === NaN) {
-    document.getElementById('number-comparison').innerHTML = "AYO FUCK NOT A NUMBER";
+  if (parseInt(guessNumber) < baseNumber) {
+    document.getElementById('number-comparison').innerHTML = `That is lower than the minimum number (${baseNumber}), try again`;
+  } else if (parseInt(guessNumber) > limitNumber) {
+    document.getElementById('number-comparison').innerHTML = `That is higher than the maximum number (${limitNumber}), try again`;
   } else if (guessNumber > randomNumber) {
     document.getElementById('number-comparison').innerHTML = "That is too high";
   } else if (guessNumber < randomNumber) {
     document.getElementById('number-comparison').innerHTML = "That is too low";
   } else {
     document.getElementById('number-comparison').innerHTML = "BOOM!";
+    document.getElementById('user-lowest-number').value=`${baseNumber - 10}`;
+    document.getElementById('user-highest-number').value=`${limitNumber + 10}`;
   };
 };
